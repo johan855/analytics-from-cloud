@@ -16,6 +16,6 @@ sudo add-apt-repository \
 sudo apt-get update
 sudo apt-get install -y docker-ce
 
-#Add sudo user to docker group
+#Add sudo user to docker group (remember to log out for the following changes to take effect)
 sudo groupadd docker
 sudo usermod -aG docker johan855
