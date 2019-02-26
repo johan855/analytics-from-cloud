@@ -7,4 +7,4 @@ docker run --rm --name pg-docker \
            -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
 
 #To connect to PG without installing it on the current instance, run:
-docker exec --tty --interactive pg-docker psql -h localhost -U postgres -d postgres
+#docker exec --tty --interactive pg-docker psql -h localhost -U postgres -d postgres
