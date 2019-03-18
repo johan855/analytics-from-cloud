@@ -24,3 +24,5 @@ nohup zookeeper-server-start.sh kafka_2.12-2.1.1/config/zookeeper.properties &
 
 #Initiallize Kafka Broker
 nohup kafka-server-start.sh kafka_2.12-2.1.1/config/server.properties &
+
+#Install Docker after Kafka
