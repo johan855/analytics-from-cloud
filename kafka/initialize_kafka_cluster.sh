@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # 1) Source connectors
+# Open ports to be used (3030 for Landoop UI)
 # Start our kafka cluster
-#Errors in distr. mode are on localhost:3030/logs/
+# Errors in distr. mode are on localhost:3030/logs/
 docker-compose up kafka-cluster
 
 ###############
