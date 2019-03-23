@@ -1,5 +1,9 @@
+
+
+#Install confluent-kafka in python
+pip install confluent-kafka
+
 #Download and unzip Kafka
-sudo apt-get update
 sudo apt install openjdk-8-jdk
 cd ~
 wget "http://www-eu.apache.org/dist/kafka/1.0.1/kafka_2.12-1.0.1.tgz"
