@@ -31,16 +31,16 @@ def produce_data(list_of_orders):
         # Asynchronously produce a message, the delivery report callback
         # will be triggered from poll() above, or flush() below, when the message has
         # been successfully delivered or failed permanently.
-        p.produce('mytopic', data.encode('utf-8'), callback=delivery_report)
+        p.produce('wordpress_orders', data.encode('utf-8'), callback=delivery_report)
     # Wait for any outstanding messages to be delivered and delivery report
     # callbacks to be triggered.
     p.flush()
 
 
 def get_orders():
-    key = global_configuration.Woocommerce.consumer_key
-    secret = global_configuration.Woocommerce.consumer_secret
-    url = global_configuration.Woocommerce.url
+    key = Woocommerce.consumer_key
+    secret = Woocommerce.consumer_secret
+    url = Woocommerce.url
     wcapi = API(
         url=url,
         consumer_key=key,
@@ -50,10 +50,10 @@ def get_orders():
     response = ''
     list_of_orders = []
     pages = 1
-    for x in range(1, pages):
-        response = wcapi.get("orders?page={0}".format(x)).json()
-        for order in response:
-            list_of_orders.append((order['id'], order))
+    for x in range(1, pages+1):
+        r = wcapi.get("orders?page={0}".format(x)).json()
+        for order in r:
+            list_of_orders.append(order)
     return list_of_orders
 
 
@@ -62,9 +62,10 @@ if __name__=='__main__':
     sleep_time = 15
     try:
         while True:
-            time.sleep(sleep_time)
             print('Sleeping for {0} seconds...'.format(sleep_time))
+            time.sleep(sleep_time)
             list_of_orders = get_orders()
-            produce_data(list_of_orders)
+            #produce_data(list_of_orders)
+            print(list_of_orders)
     except KeyboardInterrupt:
         pass
