@@ -1,6 +1,6 @@
 FROM python:3.6.3
 
-# supervisord setup
+# supervisord setup to manage webserver and scheduler
 RUN apt-get update && apt-get install -y supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
