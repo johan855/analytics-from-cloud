@@ -6,3 +6,7 @@ RUN pip3 install numpy \
  && pip3 install pystan \
  && pip3 install fbprophet
 RUN apt-get update
+# Add after this to containerize one python script
+RUN mkdir /home/python_scripts
+COPY forecast_prophet.py /home/python_scripts/forecast_prophet.py
+CMD python /home/python_scripts/forecast_prophet.py
