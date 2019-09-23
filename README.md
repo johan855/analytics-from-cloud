@@ -9,7 +9,7 @@ Features:
 - Forecasting with FB Prophet.
 - Live dashboard using Tipboard
 
-Main workflow:
+Main batch workflow:
 --------------
 1) Extract a woocommerce shop orders list using custom Python extractors
 2) Use Airflow to schedule and run the extractions
